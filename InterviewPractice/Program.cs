@@ -45,8 +45,29 @@ namespace InterviewPractice
             else
                 Console.WriteLine("It is not a palindrome");
 
+            Console.WriteLine("-------- Binary Search (Integer) --------");
+            int[] toSearchInt = { 0, 1, 2, 8, 13, 17, 19, 32, 42 };
+            Console.WriteLine("Searching in array containing [0, 1, 2, 8, 13, 17, 19, 32, 42]");
+            Console.WriteLine("Enter the number you want to search for (doesn't have to be in the array):");
+            int toFindInt = int.Parse(Console.ReadLine());
 
+            Console.WriteLine("Checking if " + toFindInt + " is in the array: ");
+            if (binarySearchInt(toSearchInt, toFindInt))
+                Console.WriteLine("It exists");
+            else
+                Console.WriteLine("It does not exist");
 
+            Console.WriteLine("-------- Binary Search (Char) --------");
+            char[] toSearchChar = { 'a', 'c', 'd', 'f', 'n', 'q', 'x', 'y', 'z' };
+            Console.WriteLine("Searching in array containing [a, c, d, f, n, q, x, y, z]");
+            Console.WriteLine("Enter the character you want to search for (doesn't have to be in the array):");
+            char toFindChar = char.Parse(Console.ReadLine());
+
+            Console.WriteLine("Checking if " + toFindChar + " is in the array: ");
+            if (binarySearchChar(toSearchChar, toFindChar))
+                Console.WriteLine("It exists");
+            else
+                Console.WriteLine("It does not exist");
 
             // Keeps terminal open
             Console.Read();
@@ -98,7 +119,49 @@ namespace InterviewPractice
             return true;
         }
 
-        // Find a character within an array
+        // Find a character within an array using binary search
+        static Boolean binarySearchInt(int[] toSearch, int toFind)
+        {
+            int first = 0, last = toSearch.Length - 1, mid;
+            Boolean found = false;
 
+            while (first <= last && !found)
+            {
+                mid = (first + last) / 2;
+                if (toSearch[mid] == toFind)
+                    found = true;
+                else
+                {
+                    if (toFind < toSearch[mid])
+                        last = mid - 1;
+                    else
+                        first = mid + 1;
+                }
+            }
+
+            return found;
+        }
+
+        static Boolean binarySearchChar(char[] toSearch, char toFind)
+        {
+            int first = 0, last = toSearch.Length - 1, mid;
+            Boolean found = false;
+
+            while (first <= last && !found)
+            {
+                mid = (first + last) / 2;
+                if (toSearch[mid] == toFind)
+                    found = true;
+                else
+                {
+                    if (toFind < toSearch[mid])
+                        last = mid - 1;
+                    else
+                        first = mid + 1;
+                }
+            }
+
+            return found;
+        }
     }
 }
