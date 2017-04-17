@@ -10,7 +10,8 @@ namespace InterviewPractice
     {
         static void Main(string[] args)
         {
-            int number; 
+            int number;
+            String stringToCheck;
 
             Console.WriteLine("-------- Iterative Fibonacci --------");
             Console.WriteLine("Enter the number upto which Fibonacci series to print: ");
@@ -33,6 +34,22 @@ namespace InterviewPractice
                 Console.Write(FibonacciRecursive(i) + " ");
             }
             Console.WriteLine();
+
+            Console.WriteLine("-------- Palindrome --------");
+            Console.WriteLine("Enter a string to check if it is a palindrome: ");
+            stringToCheck = Console.ReadLine();
+
+            Console.WriteLine("Checking string " + stringToCheck + " to see if it is a palindrome: ");
+            if (Palindrome(stringToCheck))
+                Console.WriteLine("It is a palindrome");
+            else
+                Console.WriteLine("It is not a palindrome");
+
+
+
+
+            // Keeps terminal open
+            Console.Read();
 
         }
 
@@ -65,7 +82,21 @@ namespace InterviewPractice
 
             return FibonacciRecursive(number - 1) + FibonacciRecursive(number - 2);
         }
+
         // Check if a string is a palindrome
+        static Boolean Palindrome(String stringToCheck)
+        {
+            char[] charsToCheck = stringToCheck.ToCharArray();
+            int length = charsToCheck.Length;
+            int halfLength = length / 2;
+
+            for (int i = 0; i < halfLength; i++)
+            {
+                if (charsToCheck[i] != charsToCheck[length - i - 1])
+                    return false;
+            }
+            return true;
+        }
 
         // Find a character within an array
 
