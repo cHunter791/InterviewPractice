@@ -10,7 +10,7 @@ namespace InterviewPractice
     {
         static void Main(string[] args)
         {
-            //int number;
+            int number;
             //String stringToCheck;
 
             //Console.WriteLine("-------- Iterative Fibonacci --------");
@@ -69,8 +69,13 @@ namespace InterviewPractice
             //else
             //    Console.WriteLine("It does not exist");
 
-            Console.WriteLine("-------- FizzBuzz --------");
-            FizzBuzz();
+            //Console.WriteLine("-------- FizzBuzz --------");
+            //FizzBuzz();
+
+            Console.WriteLine("-------- Converting a number to Roman numeral --------");
+            Console.WriteLine("Enter a number between 1 and 3999");
+            number = int.Parse(Console.ReadLine());
+            Console.WriteLine(NumberToRoman(number));
 
             // Keeps terminal open
             Console.Read();
@@ -181,6 +186,44 @@ namespace InterviewPractice
                 else
                     Console.Write(i + " ");
             }
+        }
+
+        static string NumberToRoman(int number)
+        {
+            //int[] values = new int[] { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+            //string[] numerals = new string[] { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+
+            if ((number < 0) || number > 3999)
+                throw new ArgumentException("Value must be in range 0 - 3999");
+            if (number < 1)
+                return string.Empty;
+            if (number >= 1000)
+                return "M" + NumberToRoman(number - 1000);
+            if (number >= 900)
+                return "CM" + NumberToRoman(number - 900);
+            if (number >= 500)
+                return "D" + NumberToRoman(number - 500);
+            if (number >= 400)
+                return "CD" + NumberToRoman(number - 400);
+            if (number >= 100)
+                return "C" + NumberToRoman(number - 100);
+            if (number >= 90)
+                return "XC" + NumberToRoman(number - 90);
+            if (number >= 50)
+                return "L" + NumberToRoman(number - 50);
+            if (number >= 40)
+                return "XL" + NumberToRoman(number - 40);
+            if (number >= 10)
+                return "X" + NumberToRoman(number - 10);
+            if (number >= 9)
+                return "IX" + NumberToRoman(number - 9);
+            if (number >= 5)
+                return "V" + NumberToRoman(number - 5);
+            if (number >= 4)
+                return "IV" + NumberToRoman(number - 4);
+            if (number >= 1)
+                return "I" + NumberToRoman(number - 1);
+            throw new ArgumentException("Value must be in range 0 - 3999");
         }
     }
 }
