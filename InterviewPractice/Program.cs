@@ -10,64 +10,67 @@ namespace InterviewPractice
     {
         static void Main(string[] args)
         {
-            int number;
-            String stringToCheck;
+            //int number;
+            //String stringToCheck;
 
-            Console.WriteLine("-------- Iterative Fibonacci --------");
-            Console.WriteLine("Enter the number upto which Fibonacci series to print: ");
-            number = int.Parse(Console.ReadLine());
+            //Console.WriteLine("-------- Iterative Fibonacci --------");
+            //Console.WriteLine("Enter the number upto which Fibonacci series to print: ");
+            //number = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(" Fibonacci series upto " + number + " numbers:");
-            for (int i = 1; i <= number; i++)
-            {
-                Console.Write(FibonacciIteration(i) + " ");
-            }
-            Console.WriteLine();
+            //Console.WriteLine(" Fibonacci series upto " + number + " numbers:");
+            //for (int i = 1; i <= number; i++)
+            //{
+            //    Console.Write(FibonacciIteration(i) + " ");
+            //}
+            //Console.WriteLine();
 
-            Console.WriteLine("-------- Recursive Fibonacci --------");
-            Console.WriteLine("Enter the number upto which Fibonacci series to print: ");
-            number = int.Parse(Console.ReadLine());
+            //Console.WriteLine("-------- Recursive Fibonacci --------");
+            //Console.WriteLine("Enter the number upto which Fibonacci series to print: ");
+            //number = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(" Fibonacci series upto " + number + " numbers:");
-            for (int i = 1; i <= number; i++)
-            {
-                Console.Write(FibonacciRecursive(i) + " ");
-            }
-            Console.WriteLine();
+            //Console.WriteLine(" Fibonacci series upto " + number + " numbers:");
+            //for (int i = 1; i <= number; i++)
+            //{
+            //    Console.Write(FibonacciRecursive(i) + " ");
+            //}
+            //Console.WriteLine();
 
-            Console.WriteLine("-------- Palindrome --------");
-            Console.WriteLine("Enter a string to check if it is a palindrome: ");
-            stringToCheck = Console.ReadLine();
+            //Console.WriteLine("-------- Palindrome --------");
+            //Console.WriteLine("Enter a string to check if it is a palindrome: ");
+            //stringToCheck = Console.ReadLine();
 
-            Console.WriteLine("Checking string " + stringToCheck + " to see if it is a palindrome: ");
-            if (Palindrome(stringToCheck))
-                Console.WriteLine("It is a palindrome");
-            else
-                Console.WriteLine("It is not a palindrome");
+            //Console.WriteLine("Checking string " + stringToCheck + " to see if it is a palindrome: ");
+            //if (Palindrome(stringToCheck))
+            //    Console.WriteLine("It is a palindrome");
+            //else
+            //    Console.WriteLine("It is not a palindrome");
 
-            Console.WriteLine("-------- Binary Search (Integer) --------");
-            int[] toSearchInt = { 0, 1, 2, 8, 13, 17, 19, 32, 42 };
-            Console.WriteLine("Searching in array containing [0, 1, 2, 8, 13, 17, 19, 32, 42]");
-            Console.WriteLine("Enter the number you want to search for (doesn't have to be in the array):");
-            int toFindInt = int.Parse(Console.ReadLine());
+            //Console.WriteLine("-------- Binary Search (Integer) --------");
+            //int[] toSearchInt = { 0, 1, 2, 8, 13, 17, 19, 32, 42 };
+            //Console.WriteLine("Searching in array containing [0, 1, 2, 8, 13, 17, 19, 32, 42]");
+            //Console.WriteLine("Enter the number you want to search for (doesn't have to be in the array):");
+            //int toFindInt = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Checking if " + toFindInt + " is in the array: ");
-            if (binarySearchInt(toSearchInt, toFindInt))
-                Console.WriteLine("It exists");
-            else
-                Console.WriteLine("It does not exist");
+            //Console.WriteLine("Checking if " + toFindInt + " is in the array: ");
+            //if (binarySearchInt(toSearchInt, toFindInt))
+            //    Console.WriteLine("It exists");
+            //else
+            //    Console.WriteLine("It does not exist");
 
-            Console.WriteLine("-------- Binary Search (Char) --------");
-            char[] toSearchChar = { 'a', 'c', 'd', 'f', 'n', 'q', 'x', 'y', 'z' };
-            Console.WriteLine("Searching in array containing [a, c, d, f, n, q, x, y, z]");
-            Console.WriteLine("Enter the character you want to search for (doesn't have to be in the array):");
-            char toFindChar = char.Parse(Console.ReadLine());
+            //Console.WriteLine("-------- Binary Search (Char) --------");
+            //char[] toSearchChar = { 'a', 'c', 'd', 'f', 'n', 'q', 'x', 'y', 'z' };
+            //Console.WriteLine("Searching in array containing [a, c, d, f, n, q, x, y, z]");
+            //Console.WriteLine("Enter the character you want to search for (doesn't have to be in the array):");
+            //char toFindChar = char.Parse(Console.ReadLine());
 
-            Console.WriteLine("Checking if " + toFindChar + " is in the array: ");
-            if (binarySearchChar(toSearchChar, toFindChar))
-                Console.WriteLine("It exists");
-            else
-                Console.WriteLine("It does not exist");
+            //Console.WriteLine("Checking if " + toFindChar + " is in the array: ");
+            //if (binarySearchChar(toSearchChar, toFindChar))
+            //    Console.WriteLine("It exists");
+            //else
+            //    Console.WriteLine("It does not exist");
+
+            Console.WriteLine("-------- FizzBuzz --------");
+            FizzBuzz();
 
             // Keeps terminal open
             Console.Read();
@@ -162,6 +165,22 @@ namespace InterviewPractice
             }
 
             return found;
+        }
+
+        // FizzBuzz
+        static void FizzBuzz()
+        {
+            for(int i = 1; i <= 100; i++)
+            {
+                if (i % 15 == 0)
+                    Console.Write("FizzBuzz ");
+                else if (i % 3 == 0)
+                    Console.Write("Fizz ");
+                else if (i % 5 == 0)
+                    Console.Write("Buzz ");
+                else
+                    Console.Write(i + " ");
+            }
         }
     }
 }
